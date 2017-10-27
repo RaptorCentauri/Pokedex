@@ -6,7 +6,15 @@ $(document).ready(function() {
 	var matchesArray = [];
 	var count = 0;
 
+	var ajaxColor = $.Deferred();
+	var ajaxType = $.Deferred();
+	var ajaxRegion = $.Deferred();
+
+
     function initalize() {
+    	ajaxColor = $.Deferred();
+		ajaxType = $.Deferred();
+		ajaxRegion = $.Deferred();
 		colorArray = [];
 		typeArray = [];
 		regionArray = [];
@@ -15,6 +23,7 @@ $(document).ready(function() {
 	};
 
 	$("#search_button").on("click", function() {
+		console.log("-------------------");
 		initalize();
 
 		var pokemon = $("#pokemon").val().trim(); //if searching single pokemon data
@@ -33,6 +42,7 @@ $(document).ready(function() {
 				colorArray.push(data.pokemon_species[i].name);
 			}
 			console.log(colorArray);
+			ajaxColor.resolve();
 			// $("#pokePics").attr("src",data.sprites.front_default);
 		});
 
@@ -45,6 +55,7 @@ $(document).ready(function() {
 				typeArray.push(data.pokemon[i].pokemon.name);
 			}
 			console.log(typeArray);
+			ajaxType.resolve();
 		});
 
 		$.ajax({
@@ -56,19 +67,23 @@ $(document).ready(function() {
 				regionArray.push(data.pokemon_species[i].name);
 			}
 			console.log(regionArray);
+			ajaxRegion.resolve();
 		});		
 
 		// need to delay intersection until its done running....
-		$(document).ajaxStop(function() {
+		var findMatches = $.when(ajaxColor,ajaxRegion,ajaxType);
+
+		findMatches.done(function() {
 			matchesArray = _.intersection(colorArray,typeArray,regionArray);
 			console.log(matchesArray);
-
-			for (var i = 0; i < matchesArray.length; i++) {
-				image = $("<img>");
-				pokePic = image.attr("src","https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+matchesArray[i]+".png")
-				$("pokePics").append(pokePic);
-			}
 		});
+			
+			// for (var i = 0; i < matchesArray.length; i++) {
+			// 	image = $("<img>");
+			// 	pokePic = image.attr("src","https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+matchesArray[i]+".png")
+			// 	$("pokePics").append(pokePic);
+			// }
+		// });
 
 
 	});
