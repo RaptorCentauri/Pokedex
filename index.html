@@ -5,6 +5,9 @@
 
 <link href="https://fonts.googleapis.com/css?family=Orbitron|Oswald:300" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script type="text/javascript" src="assets/javascript/logic.js"></script>
@@ -12,10 +15,12 @@
 </head>
 <body>
 	
-	<!-- <input type="text" id="pokemon"> -->
+<!-- 	<input type="text" id="pokemon"> -->
 	
+	<input type="text" id="pokemon">
+	<button id="search_button">Search</button>
 
-	<img id="pokePic" src=""></div>
+	<div id="pokePics"></div>
 
 	<div id="results">
 		<div class="miniResult">
@@ -51,6 +56,25 @@
 
 	<input id="type" class="menu">
 
+<!-- <<<<<<< Charlie_DaveBranch -->
+<!-- ======= -->
+	<select id = "type">
+	   <option value = "type">Type</option>
+       <option value = "fire">fire</option>
+       <option value = "water">water</option>
+       <option value = "flying">flying</option>
+       <option value = "ground">ground</option>
+       <option value = normal>normal</option>
+    </select>
+
+    <select id = "region">
+	   <option value = "gen">Region</option>
+       <option value = "1">Kanto</option>
+       <option value = "2">Johto</option>
+       <option value = "3">Hoenn</option>
+       <option value = "4">Sinnoh</option>
+       <option value = "5">Unova</option>
+<!-- >>>>>>> master -->
     </select>
 
 <br>
