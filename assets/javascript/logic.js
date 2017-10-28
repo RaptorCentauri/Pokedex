@@ -93,6 +93,8 @@ $(document).ready(function() {
 // api/v2/pokemon/{id or name} ---> sprites
 
 
+// it runs sooo..................... sloooooow.............
+
 //basically create an array for all parameters and check which pokemon are in all arrays ???
 //create new array with matching pokemon and loop through to get divs/images
 //if field null then skip
