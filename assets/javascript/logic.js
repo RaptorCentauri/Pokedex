@@ -3,7 +3,7 @@ $(document).ready(function() {
 	var colorArray = [];
 	var typeArray = [];
 
-	$("#search").on("click", function() {
+	$("#search-button").on("click", function() {
 		var pokemon = $("#pokemon").val().trim(); //if searching single pokemon data
 		var color = $("#colors").val().trim();
 		var type = $("#type").val().trim();
