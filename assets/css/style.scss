@@ -7,8 +7,8 @@ $buttonSize: 150px;
 @mixin min-results-placement-flex{
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+	// align-items: center;
+	// justify-content: center;
 }
 
 @mixin results-screen-visual{
@@ -17,31 +17,71 @@ $buttonSize: 150px;
 	box-shadow: inset 0px 0px 20px rgba(0,0,0,0.75);
 	border-radius: 15px;
 	width: 95vw;
-	height: 450px;
+	height: 40vh;
 	padding: 10px;
 	box-sizing: border-box;
+}
+
+.pokeball-img{
+	flex-basis: auto;
+	width: 25px;
+	height: 25px;
+	justify-self: flex-end;
+}
+
+.pokemon-img{
+	flex-basis: auto;
+	width: 70px;
+	height: 70px;
+	justify-self: flex-start;
+}
+
+
+
+.miniResult{
+	flex-basis: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	min-height: 20%;
+	box-sizing: border-box;
+
+	border-bottom: 0.5px solid #FFFFFF;
+	// background-color: Orange;
+}
+
+.miniInfo{
+	margin: 0 3px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.pokeName{
+	justify-self: flex-start;
+	font-size: 150%;
 }
 
 
 body{
 	background-color: $body-color;
+	height: 100vh;
+	overflow: hidden;
+	position: fixed;
 }
 
 #results{
 	@include min-results-placement-flex;
 	@include results-screen-visual;
-	
-	
-
+	overflow-y: auto;
 
 }
 
-.miniResult{
-	width:98%;
-	height:20%;
-	border-bottom: 2px solid #FFFFFF;
-	background-color: Orange;
-}
+
 
 #search-button{
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
