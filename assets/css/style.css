@@ -1,3 +1,11 @@
+#colors, #type {
+  color: #790F04;
+  width: 85%;
+  height: 30px;
+  border: 4px solid #790F04;
+  background-color: #FC0107;
+  box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.75); }
+
 .pokeball-img {
   flex-basis: auto;
   width: 25px;
@@ -34,19 +42,25 @@
   font-size: 150%; }
 
 body {
+  margin: 25px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #FC0107;
+  width: 100vw;
   height: 100vh;
   overflow: hidden;
   position: fixed; }
 
 #results {
+  align-self: center;
   display: flex;
   flex-direction: column;
   background-color: #AAF6F4;
   border: 4px solid #790F04;
   box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.75);
   border-radius: 15px;
-  width: 95vw;
+  width: 90%;
   height: 40vh;
   padding: 10px;
   box-sizing: border-box;
@@ -63,19 +77,5 @@ body {
   box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.75); }
   #search-button:active {
     box-shadow: inset 0px 0px 13px rgba(0, 0, 0, 0.75); }
-
-.menu {
-  -webkit-appearance: none;
-  background-color: #71F7E0;
-  border: none;
-  outline: none;
-  color: #FFFFFF;
-  width: 200px;
-  height: 30px;
-  text-align: center;
-  padding-left: 5px; }
-
-.menu-content {
-  background-color: #71F7E0; }
 
 /*# sourceMappingURL=style.css.map */
