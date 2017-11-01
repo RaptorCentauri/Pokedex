@@ -16,10 +16,24 @@ $buttonSize: 150px;
 	border: 4px solid #790F04;
 	box-shadow: inset 0px 0px 20px rgba(0,0,0,0.75);
 	border-radius: 15px;
-	width: 95vw;
+	width: 90%;
 	height: 40vh;
 	padding: 10px;
 	box-sizing: border-box;
+}
+
+@mixin search-boxes{
+	color: #790F04;
+	width: 85%;
+	height: 30px;
+	border: 4px solid #790F04;
+	background-color: $body-color;
+	box-shadow: inset 0px 0px 20px rgba(0,0,0,0.75);
+}
+
+#colors, #type{
+
+	@include search-boxes;
 }
 
 .pokeball-img{
@@ -35,8 +49,6 @@ $buttonSize: 150px;
 	height: 70px;
 	justify-self: flex-start;
 }
-
-
 
 .miniResult{
 	flex-basis: auto;
@@ -68,17 +80,22 @@ $buttonSize: 150px;
 
 
 body{
+	margin: 25px auto 0;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
 	background-color: $body-color;
+	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
 	position: fixed;
 }
 
 #results{
+	align-self: center;
 	@include min-results-placement-flex;
 	@include results-screen-visual;
 	overflow-y: auto;
-
 }
 
 
@@ -102,23 +119,5 @@ body{
 	// 	// background-color: Blue;
 	// 	box-shadow: inset 0px 0px 12px rgba(0,0,0,0.75);
 	// }
-
-
 }
 
-.menu{
-	-webkit-appearance: none;
-	background-color: #71F7E0;
-	border: none;
-	outline: none;
-	// box-shadow: inset 0px 0px 2px rgba(0,0,0,0.75);
-	color: #FFFFFF;
-	width: 200px;
-	height: 30px;
-	text-align: center;
-	padding-left: 5px;
-}
-
-.menu-content{
-	background-color: #71F7E0;
-}
