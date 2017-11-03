@@ -1,25 +1,35 @@
 $font-titles: Orbitron, sans-serif;
-$font-info: Oswald, sans-serif;
+$button-font-color: #FFFFFF; 
 $body-color: #FC0107;
 $search-button-color: #21FF06;
 $buttonSize: 150px;
+// $error-image: "assets/images/missingNo.png"
 
 *{
 	font-family: $font-titles;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.errorImg{
+	display: none;
+}
+
+@mixin center-flex{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 @mixin min-results-placement-flex{
 	display: flex;
+	alignt-items: center;
 	flex-direction: column;
-	// align-items: center;
-	// justify-content: center;
 }
 
 @mixin results-screen-visual{
+	// @include center-flex;
 	display: flex;
-	justify-conetent: center;
 	align-items: center;
-	// background-color: $body-color;
 	background-color: #AAF6F4;
 	border: 4px solid #790F04;
 	box-shadow: inset 0px 0px 7px rgba(0,0,0,0.75);
@@ -31,39 +41,35 @@ $buttonSize: 150px;
 }
 
 @mixin parameterButtons{
-	// background-color: #FFFFFF;
-	margin: 0;
-	padding: 0;
-	// color: #790F04;
+	@include button-styles;
 	width: 33.333vw;
 	height: 100%;
 	box-sizing: border-box;
 	border: 1px solid #790F04;
 	background-color: $body-color;
-	border-color: #FFFFFF;
-	color: #FFFFFF;
-	font-size: 300%;
-	// border-radius: 15px;
-	// box-shadow: inset 0px 0px 20px rgba(0,0,0,0.75);
+}
+
+@mixin button-styles{
+	@include center-flex;
+	border: 1px solid $button-font-color;
+	color: $button-font-color;
+	font-size: 200%;
 }
 
 
+
 @mixin result-screen-buttons{
+	@include center-flex;
 	background-color: rgba(0,0,0,0);
-	color: #FFFFFF;
+	color: #000000;
 	flex-basis: auto;
-	display: flex;
 	flex-direction: row;
-	justify-content: center;
-	align-items: center;
 	width: 100%;
 	min-height: 20%;
 	box-sizing: border-box;
 	border: none;
 	font-family: $font-titles;
 	font-size: 500%;
-
-	// border: 0 0 0.5px 0 solid #FFFFFF;
 }
 
 .miniResult{
@@ -79,7 +85,6 @@ $buttonSize: 150px;
 	min-height: 20%;
 	box-sizing: border-box;
 	border: none;
-	// border: 0 0 0.5px 0 solid #FFFFFF;
 }
 
 .color-selection, .type-selection, .region-selection{
@@ -91,13 +96,11 @@ $buttonSize: 150px;
 	width: 100vw;
 	height: 100px;
 	display: flex;
-	// flex-direction: row;
 	align-items: space-around;
 	justify-content:space-around;
 }
 
 .color-button, .type-button, .region-button{
-
 	@include parameterButtons;
 }
 
@@ -105,6 +108,7 @@ $buttonSize: 150px;
 	flex-basis: auto;
 	width: 25px;
 	height: 25px;
+	align-self: center;
 	justify-self: flex-end;
 }
 
@@ -138,13 +142,13 @@ body{
 	align-items: center;
 	background-color: $body-color;
 	width: 100vw;
-	height: 100vh;
+	// height: 100;
 	overflow: hidden;
 	position: fixed;
 }
 
 #results{
-	align-self: center;
+	// align-self: center;
 	@include min-results-placement-flex;
 	@include results-screen-visual;
 	overflow-y: auto;
@@ -153,19 +157,14 @@ body{
 
 
 #search-button{
-	// bottom: 0;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	@include button-styles;
 	background-color: $search-button-color;
-	border-color: $search-button-color;
-	color: #FFFFFF;
 	border-radius: 25px;
 	width: 95vw;
-	height: 100px;
-	font-size: 300%;
-
-	&:active{
-		box-shadow: inset 0px 0px 13px rgba(0,0,0,0.75);
-	}
+	height: 75px;
+	// &:active{
+		// box-shadow: inset 0px 0px 13px rgba(0,0,0,0.75);
+	// }
 
 	// &:hover{
 	// 	// background-color: Blue;
