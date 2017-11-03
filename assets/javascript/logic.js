@@ -24,7 +24,7 @@ function colorSearch(color){
 
 	if (!color){
 		console.log('no color');
-		ajaxColor.resolve();		
+		ajaxColor.resolve();
 	}
 
 	else{
@@ -49,7 +49,7 @@ function typeSearch(type){
 
 	if (!type){
 		console.log('no type');
-		ajaxType.resolve();		
+		ajaxType.resolve();
 	}
 
 	else{
@@ -73,7 +73,7 @@ function regionSearch(region){
 
 	if (!region){
 		console.log('no region');
-		ajaxRegion.resolve();		
+		ajaxRegion.resolve();
 	}
 
 	else {
@@ -88,9 +88,10 @@ function regionSearch(region){
 		ajaxRegion.resolve();
 	}).fail(function(){
 		$("#results").html("The API is not responding");
-	});;	
+	});;
 	}
 }
+
 
 //Create each Pokemon result
 function simpleEntry(i, _name, _image, _num){
@@ -102,7 +103,7 @@ function simpleEntry(i, _name, _image, _num){
 	}
 }
 
-//Dynamically Add Results to Page 
+//Dynamically Add Results to Page
 function buildList(_name, _image, _num){
 	var miniDex = $(`<button class="miniResult" data-name=${_name}>`);
 	miniDex.append(`<img src="${_image}" class="pokemon-img">`);
@@ -131,17 +132,17 @@ function searchToRun(colorArray, typeArray, regionArray){
 
 	if (colorArray.length == 0 && typeArray.length == 0){
 		console.log('check this one');
-		matchesArray = regionArray;	
+		matchesArray = regionArray;
 	}
 
 	else if (regionArray.length == 0 && typeArray.length == 0){
 		console.log('check this one');
-		matchesArray = colorArray;	
+		matchesArray = colorArray;
 	}
 
 	else if (colorArray.length == 0 && regionArray.length == 0){
 		console.log('check this one');
-		matchesArray = typeArray;	
+		matchesArray = typeArray;
 	}
 
 	else if (colorArray.length == 0){
@@ -218,7 +219,7 @@ $.ajax({
 }).fail(function(){
 
 	$("#results").html("The API is not responding");
-});;
+});
 
 //Get Pokedex Choices from API
 $.ajax({
@@ -231,7 +232,7 @@ $.ajax({
 }).fail(function(){
 
 	$("#results").html("The API is not responding");
-});;
+});
 
 
 $(document).ready(function() {
@@ -295,12 +296,6 @@ $(document).ready(function() {
 		      $("#results").empty();
 		      $("#results").append(`<img src="${imageUrl}">`);
 		    });
-
-
-
-		   		// region = $(this).data("region");
-		   		// console.log(region);
-		   		// $(".region-button").html(region);
 	});
 
 	//Runs the search
@@ -345,7 +340,7 @@ $(document).ready(function() {
 
 				console.log(`Matches on next line meet all criteria!!!!`);
 				console.log(matchesArray);
-				
+
 				var promises = [];
 
 				for (var i = 0; i < matchesArray.length; i++) {
@@ -354,7 +349,7 @@ $(document).ready(function() {
 										method: "GET"
 									}).done(function(data) {
 										// console.log(data);
-										resultsArr.push({name: data.name, image: data.sprites.front_default, num: data.id});					
+										resultsArr.push({name: data.name, image: data.sprites.front_default, num: data.id});
 									}).fail(function(){
 										$("#results").html("The API is not responding");
 									});;
@@ -363,7 +358,7 @@ $(document).ready(function() {
 				}
 
 				$.when.apply(null, promises).done(function(){
-					
+
 					$("#results").empty();
 					console.log('all done');
 					console.log(resultsArr);

@@ -1,5 +1,5 @@
 $font-titles: Orbitron, sans-serif;
-$button-font-color: #FFFFFF; 
+$button-font-color: #FFFFFF;
 $body-color: #FC0107;
 $search-button-color: #21FF06;
 $buttonSize: 150px;
@@ -8,10 +8,6 @@ $buttonSize: 150px;
 *{
 	font-family: $font-titles;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-.errorImg{
-	display: none;
 }
 
 @mixin center-flex{
@@ -155,7 +151,6 @@ body{
 }
 
 
-
 #search-button{
 	@include button-styles;
 	background-color: $search-button-color;
@@ -171,4 +166,3 @@ body{
 	// 	box-shadow: inset 0px 0px 12px rgba(0,0,0,0.75);
 	// }
 }
-
