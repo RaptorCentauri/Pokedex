@@ -4,7 +4,8 @@
 
 	<title>Test</title>
 
-
+	<!-- <meta name="viewport" content="width=device-width"> -->
+	<!-- <meta name="viewport" content="minimal-ui"> -->
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<link type="font" href="https://fonts.googleapis.com/css?family=Orbitron|Oswald:300" rel="stylesheet">
@@ -14,28 +15,26 @@
 	<script type="text/javascript" src="assets/javascript/logic.js"></script>
 </head>
 <body>
+	<div class="wrapper">
+		<div id="status-bar">
+			<div id="status-light"></div>
+		</div>
+		<div id="results">
+			<!-- <img src=assets/images/missingNo.png class="errorImg"> -->
+		</div>
 
-	<div id="results">
-		<!-- <img src=assets/images/missingNo.png class="errorImg"> -->
+		<div id="attribute-selector-container">
+			<button class="attribute-selector color-button">Color</button>
+
+			<button class="attribute-selector type-button">Type</button>
+
+			<button class="attribute-selector region-button">Region</button>
+
+			<button id="search-button"></button>
+
+		</div>
+
+
 	</div>
-
-	<br>
-
-	<div id="parameter-buttons">
-		<!-- <input type="text" id="colors" placeholder="Color"> -->
-		<button class="color-button">Color</button>
-
-		<button class="type-button">Type</button>
-		<!-- <input type="text" id="type" placeholder="Type"> -->
-
-		<button class="region-button">Region</button>
-		<!-- <input type="text" id="region" placeholder="region"> -->
-		<br>
-	</div>
-
-	<br>
-
-	<button id="search-button">Search</button>
-
 </body>
 </html>

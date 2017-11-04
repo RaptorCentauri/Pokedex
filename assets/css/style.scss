@@ -1,168 +1,186 @@
 $font-titles: Orbitron, sans-serif;
-$button-font-color: #FFFFFF;
-$body-color: #FC0107;
-$search-button-color: #21FF06;
-$buttonSize: 150px;
-// $error-image: "assets/images/missingNo.png"
+$device-color: #3d3936;
+$hardware-button-color: #cfcfcf;
+$search-button-color:#20d65e;
 
 *{
-	font-family: $font-titles;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-@mixin center-flex{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-@mixin min-results-placement-flex{
-	display: flex;
-	alignt-items: center;
-	flex-direction: column;
-}
-
-@mixin results-screen-visual{
-	// @include center-flex;
-	display: flex;
-	align-items: center;
-	background-color: #AAF6F4;
-	border: 4px solid #790F04;
-	box-shadow: inset 0px 0px 7px rgba(0,0,0,0.75);
-	border-radius: 15px;
-	width: 95vw;
-	height: 80vh;
-	padding: 10px;
-	box-sizing: border-box;
-}
-
-@mixin parameterButtons{
-	@include button-styles;
-	width: 33.333vw;
-	height: 100%;
-	box-sizing: border-box;
-	border: 1px solid #790F04;
-	background-color: $body-color;
-}
-
-@mixin button-styles{
-	@include center-flex;
-	border: 1px solid $button-font-color;
-	color: $button-font-color;
-	font-size: 200%;
-}
-
-
-
-@mixin result-screen-buttons{
-	@include center-flex;
-	background-color: rgba(0,0,0,0);
-	color: #000000;
-	flex-basis: auto;
-	flex-direction: row;
-	width: 100%;
-	min-height: 20%;
-	box-sizing: border-box;
-	border: none;
-	font-family: $font-titles;
-	font-size: 500%;
-}
-
-.miniResult{
+	font-size: 16pt;
 	margin: 0;
 	padding: 0;
-	background-color: rgba(0,0,0,0);
-	flex-basis: auto;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	width: 80%;
-	min-height: 20%;
-	box-sizing: border-box;
-	border: none;
-}
-
-.color-selection, .type-selection, .region-selection{
-	@include result-screen-buttons;
-}
-
-
-#parameter-buttons{
-	width: 100vw;
-	height: 100px;
-	display: flex;
-	align-items: space-around;
-	justify-content:space-around;
-}
-
-.color-button, .type-button, .region-button{
-	@include parameterButtons;
-}
-
-.pokeball-img{
-	flex-basis: auto;
-	width: 25px;
-	height: 25px;
-	align-self: center;
-	justify-self: flex-end;
-}
-
-.pokemon-img{
-	flex-basis: auto;
-	width: 100px;
-	height: 100px;
-	justify-self: flex-start;
-}
-
-.miniInfo{
-	margin: 0 3px;
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	font-size: 250%;
-}
-
-.pokeName{
-	justify-self: flex-start;
-	// font-size: 150%;
 }
 
 
 body{
-	margin: 25px auto 0;
-	display:flex;
-	flex-direction: column;
-	align-items: center;
-	background-color: $body-color;
-	width: 100vw;
-	// height: 100;
-	overflow: hidden;
+	// height: 100%;
+	background-color: $device-color;
+	display: flex;
+	justify-content: center;
+}
+
+.wrapper{
 	position: fixed;
+	overflow: hidden;
+	display: grid;
+	grid-template-rows: 5vh 70vh 10vh;
+	background-color: $device-color;
+	height: 100vh;
+	width: 100vw;
+
+	// @media screen and (min-width: 760px){
+	// 	width: 100vw;
+	// }
+
+}
+
+
+
+@mixin result-button-styles {
+
+		width:90%;
+		border:none;
+		border-bottom: 0.5px solid $hardware-button-color;
+		color: $device-color;
+		background-color: #f7f7f7;
+		min-height: 20%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+
+
+
+			&:last-child{
+				border: none;
+			}
+
+			&:active{
+				color: $hardware-button-color;
+			}
+
+}
+
+@mixin attribute-selector-style {
+	border: 2px solid $hardware-button-color;
+	box-shadow: inset 0px 0px 3px $hardware-button-color;
+	border-radius: 100px;
+	background-color: $device-color;
+	color: $hardware-button-color;
+	width: 25vw;
+	height: 3vh;
+
+	// font-size: 70%;
+
+	&:active{
+		box-shadow: inset 0px 0px 5px $hardware-button-color;
+	}
+}
+
+#attribute-selector-container{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+
+	// background-color: yellow;
+	// height: 100%;
+	justify-self: center;
+	width: 95vw;
+}
+
+.attribute-selector{
+	@include attribute-selector-style;
 }
 
 #results{
-	// align-self: center;
-	@include min-results-placement-flex;
-	@include results-screen-visual;
-	overflow-y: auto;
+	box-sizing: border-box;
+	padding: 30px 0px 30px;
+	justify-self: center;
+	background-color: #f7f7f7;
+	border-radius: 30px;
+	height: 70vh;
+	width: 95vw;
+
+overflow-y:auto;
+
+display: flex;
+align-items: center;
+flex-direction: column;
+
+	// @media screen and (min-width: 760px){
+	// 	width: 95vw;
+	// }
+
+
+}
+
+#status-bar{
+	width: 95vw;
+	height: auto;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+#status-light{
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+	background-color: $device-color;
 }
 
 
 #search-button{
-	@include button-styles;
-	background-color: $search-button-color;
-	border-radius: 25px;
-	width: 95vw;
-	height: 75px;
-	// &:active{
-		// box-shadow: inset 0px 0px 13px rgba(0,0,0,0.75);
-	// }
+	width: 70px;
+	height: 70px;
+	justify-self: center;
 
-	// &:hover{
-	// 	// background-color: Blue;
-	// 	box-shadow: inset 0px 0px 12px rgba(0,0,0,0.75);
-	// }
+	border: 2px solid $hardware-button-color;
+	border-radius: 100%;
+	background-color: $search-button-color;
+	box-shadow: inset 0px 0px 3px $hardware-button-color;
+
+		&:active{
+			box-shadow: inset 0px 0px 5px $hardware-button-color;
+		}
+
+
+
+}
+
+.parameter-button{
+	@include result-button-styles;
+}
+
+.miniResult{
+		@include result-button-styles;
+}
+
+.miniInfo{
+	width: 90%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.pokemon-img{
+	justify-self: center;
+	align-self: flex-start;
+}
+
+.pokeball-img{
+	justify-self: center;
+	align-self: center;
+}
+
+.pokeName{
+	align-self: flex-start;
+}
+
+.pokeNumber{
+	align-self: flex-end;
+}
+
+#gif-result{
+	align-self: center;
+	justify-self: center;
 }

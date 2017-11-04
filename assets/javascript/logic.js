@@ -40,6 +40,7 @@ function colorSearch(color){
 			ajaxColor.resolve();
 		}).fail(function(){
 			$("#results").html("The API is not responding");
+			$("#status-light").css("background-color", "#ff1c1c");
 		});;
 	}
 }
@@ -64,6 +65,8 @@ function typeSearch(type){
 		ajaxType.resolve();
 		}).fail(function(){
 			$("#results").html("The API is not responding");
+			$("#status-light").css("background-color", "#ff1c1c");
+
 		});;
 	}
 }
@@ -88,9 +91,13 @@ function regionSearch(region){
 		ajaxRegion.resolve();
 	}).fail(function(){
 		$("#results").html("The API is not responding");
+		$("#status-light").css("background-color", "#ff1c1c");
+
 	});;
 	}
 }
+
+
 
 
 //Create each Pokemon result
@@ -130,7 +137,13 @@ function initalize() {
 //Determines which search pattern to run based on given parameters
 function searchToRun(colorArray, typeArray, regionArray){
 
-	if (colorArray.length == 0 && typeArray.length == 0){
+	if(colorArray.length == 0 && typeArray.length == 0 && regionArray.length == 0){
+		$("#status-light").css("background-color", "#ff1c1c");
+		$("#results").empty();
+		$("#results").html("You must select at least one parameter!");
+	}
+
+	else if (colorArray.length == 0 && typeArray.length == 0){
 		console.log('check this one');
 		matchesArray = regionArray;
 	}
@@ -165,6 +178,8 @@ function searchToRun(colorArray, typeArray, regionArray){
 		matchesArray = _.intersection(colorArray, typeArray, regionArray);
 	}
 }
+
+
 
 function validateSearches(_color, _type, _region){
 	console.log(colorChoices);
@@ -204,8 +219,9 @@ $.ajax({
 	}
 	console.log(colorChoices);
 }).fail(function(){
-
 	$("#results").html("The API is not responding");
+				$("#status-light").css("background-color", "#ff1c1c");
+
 });
 
 //Get Type Choices from API
@@ -219,6 +235,8 @@ $.ajax({
 }).fail(function(){
 
 	$("#results").html("The API is not responding");
+				$("#status-light").css("background-color", "#ff1c1c");
+
 });
 
 //Get Pokedex Choices from API
@@ -232,6 +250,8 @@ $.ajax({
 }).fail(function(){
 
 	$("#results").html("The API is not responding");
+				$("#status-light").css("background-color", "#ff1c1c");
+
 });
 
 
@@ -242,7 +262,7 @@ $(document).ready(function() {
 	$(".color-button").on("click", function(){
 		$("#results").empty();
 		for (var i = 0; i < colorChoices.length; i++){
-			$("#results").append(`<button class="color-selection" data-color="${colorChoices[i]}">${colorChoices[i]}</button>`);
+			$("#results").append(`<button class="color-selection parameter-button" data-color="${colorChoices[i]}">${colorChoices[i]}</button>`);
 		}
 	});
 
@@ -251,7 +271,7 @@ $(document).ready(function() {
 		$("#results").empty();
 
 		for (var i = 0; i < typeChoices.length; i++){
-			$("#results").append(`<button class="type-selection" data-type="${typeChoices[i]}">${typeChoices[i]}</button>`);
+			$("#results").append(`<button class="type-selection parameter-button" data-type="${typeChoices[i]}">${typeChoices[i]}</button>`);
 		}
 	});
 
@@ -259,7 +279,7 @@ $(document).ready(function() {
 	$(".region-button").on("click", function(){
 		$("#results").empty();
 		for (var i = 0; i < regionChoices.length; i++){
-			$("#results").append(`<button class="region-selection" data-region="${regionChoices[i]}">${regionChoices[i]}</button>`);
+			$("#results").append(`<button class="region-selection parameter-button" data-region="${regionChoices[i]}">${regionChoices[i]}</button>`);
 		}
 	});
 
@@ -283,7 +303,7 @@ $(document).ready(function() {
 		$(".region-button").html(region);
 	});
 
-	//Displays Gif related to the pokemon (NOTE!!! This is using the random generator from Giphy, because of this, results may seem off topic at times.)
+	//Displays Gif related to the pokemon (note!!! This is using the random generator from Giphy, because of this, results may seem off topic at times.)
 	$(document.body).on("click", ".miniResult", function(){
 
 		  	$.ajax({
@@ -294,7 +314,7 @@ $(document).ready(function() {
 		      var imageUrl = response.data.image_original_url;
 		      console.log(imageUrl)
 		      $("#results").empty();
-		      $("#results").append(`<img src="${imageUrl}">`);
+		      $("#results").append(`<img id="gif-result" src="${imageUrl}">`);
 		    });
 	});
 
@@ -317,6 +337,7 @@ $(document).ready(function() {
 
 			console.log("--------BEGIN SEARCH-----------");
 			$("#results").html("Searching for Matches");
+			$("#status-light").css("background-color", "#f5a917");
 			// var pokemon = $("#pokemon").val().trim(); //if searching single pokemon data
 
 			colorSearch(color);
@@ -358,6 +379,8 @@ $(document).ready(function() {
 				}
 
 				$.when.apply(null, promises).done(function(){
+
+					$("#status-light").css("background-color", "#1bb4ff");
 
 					$("#results").empty();
 					console.log('all done');
