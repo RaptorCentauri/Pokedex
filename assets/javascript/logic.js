@@ -132,6 +132,8 @@ function initalize() {
 	typeArray = [];
 	regionArray = [];
 	matchesArray = [];
+	resultsArr = [];
+	$("#results").empty();
 }
 
 //Determines which search pattern to run based on given parameters
@@ -318,8 +320,15 @@ $(document).ready(function() {
 		    });
 	});
 
+$(document.body).on("click", "#status-light", function(){
+		console.log('button light workin');
+		initalize();
+});
+
+
+
 	//Runs the search
-	$(document.body).on("click", "#search-button", function() {
+$(document.body).on("click", "#search-button", function() {
 
 		if(!validateSearches(color, type, region)){
 			console.log('INVALID PARAMETERS');
@@ -332,8 +341,6 @@ $(document).ready(function() {
 		else{
 
 			$("#results").empty();
-
-			initalize();
 
 			console.log("--------BEGIN SEARCH-----------");
 			$("#results").html("Searching for Matches");
