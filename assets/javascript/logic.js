@@ -29,7 +29,7 @@ function colorSearch(color){
 
 	else{
 		$.ajax({
-			url: `https://pokeapi.co/api/v2/pokemon-color/${color}`,
+			url: `https://pokeapi.co/api/v2/pokemon-color/${color}/`,
 			method: "GET"
 		}).done(function(data) {
 			// console.log(data);
