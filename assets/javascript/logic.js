@@ -55,7 +55,7 @@ function typeSearch(type){
 
 	else{
 	$.ajax({
-		url: "https://pokeapi.co/api/v2/type/" + type,
+		url: `https://pokeapi.co/api/v2/type/${type}/`,
 		method: "GET"
 	}).done(function(data) {
 		for (var i = 0; i < data.pokemon.length; i++) {
@@ -81,7 +81,7 @@ function regionSearch(region){
 
 	else {
 	$.ajax({
-		url: "https://pokeapi.co/api/v2/pokedex/" + region,
+		url: `https://pokeapi.co/api/v2/pokedex/${region}/`,
 		method: "GET"
 	}).done(function(data) {
 		for (var i = 0; i < data.pokemon_entries.length; i++) {
@@ -373,7 +373,7 @@ $(document.body).on("click", "#search-button", function() {
 
 				for (var i = 0; i < matchesArray.length; i++) {
 					var request = 	$.ajax({
-										url: "https://pokeapi.co/api/v2/pokemon/" + matchesArray[i],
+										url: `https://pokeapi.co/api/v2/pokemon/${matchesArray[i]}/`,
 										method: "GET"
 									}).done(function(data) {
 										// console.log(data);
