@@ -21,7 +21,7 @@ var ajaxResult = $.Deferred();
 
 //Search by specific color
 function colorSearch(color){
-
+	console.log('running color search');
 	if (!color){
 		console.log('no color');
 		ajaxColor.resolve();
