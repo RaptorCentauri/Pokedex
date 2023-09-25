@@ -19,6 +19,19 @@ var ajaxResult = $.Deferred();
 
 //FUNCTION DECLARATIONS
 
+<<<<<<< HEAD
+	$("#search_button").on("click", function() {
+		console.log("-------------------");
+		initalize();
+
+	$("#search-button").on("click", function() {
+		var pokemon = $("#pokemon").val().trim(); //if searching single pokemon data
+		var color = $("#colors").val();
+		var type = $("#type").val();
+		var region = $("#region").val();
+		// var queryURL = "https://pokeapi.co/api/v2/pokemon/" + pokemon;
+		var queryURL = "https://pokeapi.co/api/v2/pokemon-color/" + color;
+=======
 //Search by specific color
 function colorSearch(color){
 	console.log('running color search');
@@ -26,6 +39,7 @@ function colorSearch(color){
 		console.log('no color');
 		ajaxColor.resolve();
 	}
+>>>>>>> master
 
 	else{
 		$.ajax({
