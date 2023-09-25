@@ -1,4 +1,5 @@
 $font-titles: Orbitron, sans-serif;
+<<<<<<< HEAD
 $font-info: Oswald, sans-serif;
 $body-color: #FC0107;
 $search-button-color: #21FF06;
@@ -8,10 +9,22 @@ $buttonSize: 150px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+=======
+$device-color: #3d3936;
+$hardware-button-color: #cfcfcf;
+$search-button-color:#20d65e;
+
+*{
+	// webkit-tap-highlight-color: rgba(0,0,0,0);
+	font-size: 16pt;
+	margin: 0;
+	padding: 0;
+>>>>>>> master
 }
 
 
 body{
+<<<<<<< HEAD
 	background-color: $body-color;
 }
 
@@ -55,11 +68,110 @@ body{
 	// &:hover{
 	// 	// background-color: Blue;
 	// 	box-shadow: inset 0px 0px 12px rgba(0,0,0,0.75);
+=======
+	// height: 100%;
+	background-color: $device-color;
+	display: flex;
+	justify-content: center;
+}
+
+.wrapper{
+	position: fixed;
+	overflow: hidden;
+	display: grid;
+	grid-template-rows: 5vh 70vh 10vh;
+	background-color: $device-color;
+	height: 100vh;
+	width: 100vw;
+
+	// @media screen and (min-width: 760px){
+	// 	width: 100vw;
+	// }
+
+}
+
+
+
+@mixin result-button-styles {
+		// webkit-tap-highlight-color: rgba(0,0,0,0);
+		width:90%;
+		border:none;
+		border-bottom: 0.5px solid $hardware-button-color;
+		color: $device-color;
+		background-color: #f7f7f7;
+		min-height: 20%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+
+
+
+			&:last-child{
+				border: none;
+			}
+
+			&:active{
+				color: $hardware-button-color;
+			}
+
+}
+
+@mixin attribute-selector-style {
+	border: 2px solid $hardware-button-color;
+	box-shadow: inset 0px 0px 3px $hardware-button-color;
+	border-radius: 100px;
+	background-color: $device-color;
+	color: $hardware-button-color;
+	width: 25vw;
+	height: 3vh;
+
+	// font-size: 70%;
+
+	&:active{
+		box-shadow: inset 0px 0px 5px $hardware-button-color;
+	}
+}
+
+#attribute-selector-container{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+
+	// background-color: yellow;
+	// height: 100%;
+	justify-self: center;
+	width: 95vw;
+}
+
+.attribute-selector{
+	@include attribute-selector-style;
+}
+
+#results{
+	box-sizing: border-box;
+	padding: 30px 0px 30px;
+	justify-self: center;
+	background-color: #f7f7f7;
+	border-radius: 30px;
+	height: 70vh;
+	width: 95vw;
+
+overflow-y:auto;
+
+display: flex;
+align-items: center;
+flex-direction: column;
+
+	// @media screen and (min-width: 760px){
+	// 	width: 95vw;
+>>>>>>> master
 	// }
 
 
 }
 
+<<<<<<< HEAD
 .menu{
 	-webkit-appearance: none;
 	background-color: #71F7E0;
@@ -75,4 +187,78 @@ body{
 
 .menu-content{
 	background-color: #71F7E0;
+=======
+#status-bar{
+	width: 95vw;
+	height: auto;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+#status-light{
+	border: none;
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+	background-color: $device-color;
+}
+
+
+#search-button{
+	width: 70px;
+	height: 70px;
+	justify-self: center;
+
+	border: 2px solid $hardware-button-color;
+	border-radius: 100%;
+	background-color: $search-button-color;
+	box-shadow: inset 0px 0px 3px $hardware-button-color;
+
+		&:active{
+			box-shadow: inset 0px 0px 5px $hardware-button-color;
+		}
+
+
+
+}
+
+.parameter-button{
+	@include result-button-styles;
+}
+
+.miniResult{
+		@include result-button-styles;
+}
+
+.miniInfo{
+	width: 90%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.pokemon-img{
+	justify-self: center;
+	align-self: flex-start;
+}
+
+.pokeball-img{
+	justify-self: center;
+	align-self: center;
+}
+
+.pokeName{
+	align-self: flex-start;
+}
+
+.pokeNumber{
+	align-self: flex-end;
+}
+
+#gif-result{
+	align-self: center;
+	justify-self: center;
+>>>>>>> master
 }
